@@ -63,7 +63,7 @@ static MKPointAnnotation * MKPointAnnotationFromGeoJSONPointFeature(NSDictionary
     pointAnnotation.coordinate = CLLocationCoordinateFromCoordinates(geometry[@"coordinates"]);
 
     NSDictionary *properties = [NSDictionary dictionaryWithDictionary:feature[@"properties"]];
-    pointAnnotation.title = properties[@"title"];
+    pointAnnotation.title = properties[@"name"];
     pointAnnotation.subtitle = properties[@"subtitle"];
 
     return pointAnnotation;
@@ -80,7 +80,7 @@ static MKPolyline * MKPolylineFromGeoJSONLineStringFeature(NSDictionary *feature
     free(polylineCoordinates);
 
     NSDictionary *properties = [NSDictionary dictionaryWithDictionary:feature[@"properties"]];
-    polyLine.title = properties[@"title"];
+    polyLine.title = properties[@"name"];
     polyLine.subtitle = properties[@"subtitle"];
 
     return polyLine;
@@ -117,7 +117,7 @@ static MKPolygon * MKPolygonFromGeoJSONPolygonFeature(NSDictionary *feature) {
     }
 
     NSDictionary *properties = [NSDictionary dictionaryWithDictionary:feature[@"properties"]];
-    polygon.title = properties[@"title"];
+    polygon.title = properties[@"name"];
     polygon.subtitle = properties[@"subtitle"];
 
     return polygon;
